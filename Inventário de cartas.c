@@ -43,3 +43,31 @@ void Atributo_Monstro(Carta_Monstro *carta){
         break;
     }
 }
+
+void Tipo_Monstro(Carta_Monstro *carta){
+    printf("Qual o tipo do monstro:\n");
+    printf("1. Aqua
+2. Besta
+3. Besta Alada
+4. Besta Divina
+5. Ciberso
+6. Demônio
+7. Dinossauro
+8. Dragão
+9. Deus Criador
+10. Fada (antigamente conhecido como Anjo)
+11. Guerreiro
+12. Inseto (antigamente conhecido como Insecto)
+13. Mago
+14. Máquina
+15. Peixe
+16. Planta
+17. Psíquico
+18. Piro
+19. Réptil
+20. Rocha
+21. Serpente Marinha
+22. Trovão
+23. Wyrm
+24. Zumbi")
+}
