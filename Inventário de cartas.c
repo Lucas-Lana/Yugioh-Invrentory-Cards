@@ -1,29 +1,22 @@
-/*Esse projeto viza criar um sistema da qual sirva de inventário de cartas de yu-gi-oh.
-Com os meus conhecimentos atuais é possível apenas criar um ssitema local.
-No futuro a ideia é de que possua um banco de dados alimentado por usuários, e claro interfaces visuais*/
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
+#include "Inventário de cartas.h"
 
-typedef struct Carta_Monstro
-{   
-    char nome[64];
-    int nivel;
-    char atributo[7];
-    char tipo[82];
-    int ATK;
-    int DEF;
-    char texto[480];
-}Carta_Monstro;
-
-void adiciona_Carta_Monstro(Carta_Monstro*carta){
+void Nome_Monstro(Carta_Monstro *carta){
     printf("Digite o nome do monstro:\n");
     scanf("%s", carta->nome);
+}
+
+void Nivel_Monstro(Carta_Monstro *carta){
     printf("\nDigite o nivel do monstro (numero):\n");
     scanf("%d",carta->nivel);
+}
+
+void Atributo_Monstro(Carta_Monstro *carta){
     printf("\nQual o atributo do monstro:\n");
     printf("1) Trevas\n2) Terra\n3) Fogo\n4) Luz\n5) Agua\n6) Vento\n");
-    int atributo_int;
+    int atributo_int, tipo_int;
     scanf("\n%d",atributo_int);
     switch (atributo_int)
     {
@@ -49,9 +42,4 @@ void adiciona_Carta_Monstro(Carta_Monstro*carta){
         printf("Atributo invalido");
         break;
     }
-}
-int main(){
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    Carta_Monstro carta;
-    adiciona_Carta_Monstro(&carta);
 }
