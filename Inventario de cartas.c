@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-#include "Inventário de cartas.h"
+#include "Inventario de cartas.h"
 
 void Nome_Monstro(Carta_Monstro *carta){
     printf("Digite o nome do monstro:\n");
