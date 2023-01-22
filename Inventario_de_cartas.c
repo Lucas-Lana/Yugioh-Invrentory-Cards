@@ -1,23 +1,36 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-#include "Inventario de cartas.h"
+#include "Inventario_de_cartas.h"
+
+void Adiciona_Carta_Monstro(Carta_Monstro *carta){
+    Nome_Monstro(carta);
+    Nivel_Monstro(carta);
+    Atributo_Monstro(carta);
+    Tipo_Monstro(carta);
+    printf("\n.....\nTrabalho em Progresso....");
+}
 
 void Nome_Monstro(Carta_Monstro *carta){
-    printf("Digite o nome do monstro:\n");
+    
+    printf("\nDigite o nome do monstro:\n");
     scanf("%s", carta->nome);
+    printf("\n");
 }
 
 void Nivel_Monstro(Carta_Monstro *carta){
+    
     printf("\nDigite o nivel do monstro (numero):\n");
     scanf("%d",carta->nivel);
+    printf("\n");
 }
 
 void Atributo_Monstro(Carta_Monstro *carta){
+   
     printf("\nQual o atributo do monstro:\n");
-    printf("1) Trevas\n2) Terra\n3) Fogo\n4) Luz\n5) Agua\n6) Vento\n");
-    int atributo_int, tipo_int;
-    scanf("\n%d",atributo_int);
+    printf("1) Trevas\n2) Terra\n3) Fogo\n4) Luz\n5) Agua\n6) Vento\n\n");
+    int atributo_int;
+    scanf("%d",&atributo_int);
     switch (atributo_int)
     {
     case 1:
@@ -45,12 +58,29 @@ void Atributo_Monstro(Carta_Monstro *carta){
 }
 
 void Tipo_Monstro(Carta_Monstro *carta){
-    printf("Qual o tipo do monstro:\n");
-    printf("1) Aqua\n2) Besta\n3) Besta Alada\n4) Besta Divina\n5) Ciberso\n6) Demônio\n7) Dinossauro\n8) Dragão\n9) Deus Criador\n");
-    printf("10) Fada (antigamente conhecido como Anjo)\n11) Guerreiro\n12) Inseto (antigamente conhecido como Insecto)\n13) Mago\n");
-    printf("14) Máquina\n15) Peixe\n16) Planta\n17) Psíquico\n18) Piro\n19) Réptil\n20) Rocha\n21) Serpente Marinha\n22) Trovão\n23) Wyrm\n24) Zumbi\n");
+   
+    printf("\nQual o tipo do monstro:\n");
+    char* monsterTypes[] = {"Aqua", "Besta", "Besta Alada", "Besta Divina", "Ciberso", "Demônio", "Dinossauro", 
+    "Dragão", "Deus Criador", "Fada", "Guerreiro", "Inseto", "Mago", "Máquina", "Peixe", "Planta", "Psíquico",
+    "Piro", "Réptil", "Rocha", "Serpente Marinha", "Trovão", "Wyrm", "Zumbi"};
 
-        int opcao;
+    for (int i = 0; i < 24; i++) {
+        if(i<=8){
+            printf("0%d) %-21s ", i+1, monsterTypes[i]);
+                if((i+1)%2==0)
+                    printf("\n");
+
+        }
+        
+        else {
+            printf("%d) %-21s ", i+1, monsterTypes[i]);
+                if((i+1)%2==0)
+                    printf("\n");
+        }
+    }
+    
+
+    int opcao;
     scanf("%d", &opcao);
 
     switch (opcao) {
@@ -126,5 +156,8 @@ void Tipo_Monstro(Carta_Monstro *carta){
         case 24:
             strcpy(carta->tipo, "Zumbi");
             break;
+        default:
+            printf("Tipo Inválido");
+            break;
     }
-} 
+}
