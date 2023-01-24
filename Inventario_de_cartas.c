@@ -3,25 +3,41 @@
 #include <locale.h>
 #include "Inventario_de_cartas.h"
 
+void Imprime_Carta_Monstro(Carta_Monstro *carta) {
+    printf("\n------------------------------------\n");
+    printf("Nome: %s\n", carta->nome);
+    printf("Nivel: %d\n", carta->nivel);
+    printf("Atributo: %s\n", carta->atributo);
+    printf("Tipo: %s\n", carta->tipo);
+    printf("ATK/DEF: %d/%d\n", carta->ATK, carta->DEF);
+    printf("Texto: %s\n", carta->texto);
+    printf("------------------------------------\n");
+}
+
 void Adiciona_Carta_Monstro(Carta_Monstro *carta){
     Nome_Monstro(carta);
     Nivel_Monstro(carta);
     Atributo_Monstro(carta);
     Tipo_Monstro(carta);
-    printf("\n.....\nTrabalho em Progresso....");
+    ATK_DEF(carta);
+    fflush(stdin);
+    Texto(carta);
 }
 
 void Nome_Monstro(Carta_Monstro *carta){
-    
     printf("\nDigite o nome do monstro:\n");
-    scanf("%s", carta->nome);
+    fgets(carta->nome, sizeof(carta->nome), stdin);
+    size_t len = strlen(carta->nome);
+    if (carta->nome[len-1] == '\n') {
+        carta->nome[len-1] = '\0';
+    }
     printf("\n");
 }
 
 void Nivel_Monstro(Carta_Monstro *carta){
     
     printf("\nDigite o nivel do monstro (numero):\n");
-    scanf("%d",carta->nivel);
+    scanf("%d",&carta->nivel);
     printf("\n");
 }
 
@@ -59,21 +75,21 @@ void Atributo_Monstro(Carta_Monstro *carta){
 
 void Tipo_Monstro(Carta_Monstro *carta){
    
-    printf("\nQual o tipo do monstro:\n");
-    char* monsterTypes[] = {"Aqua", "Besta", "Besta Alada", "Besta Divina", "Ciberso", "Demônio", "Dinossauro", 
+    printf("\nQual o tipo do monstro:\n\n");
+    char* tipos_monstros[] = {"Aqua", "Besta", "Besta Alada", "Besta Divina", "Ciberso", "Demônio", "Dinossauro", 
     "Dragão", "Deus Criador", "Fada", "Guerreiro", "Inseto", "Mago", "Máquina", "Peixe", "Planta", "Psíquico",
     "Piro", "Réptil", "Rocha", "Serpente Marinha", "Trovão", "Wyrm", "Zumbi"};
 
     for (int i = 0; i < 24; i++) {
         if(i<=8){
-            printf("0%d) %-21s ", i+1, monsterTypes[i]);
+            printf("0%d) %-21s ", i+1, tipos_monstros[i]);
                 if((i+1)%2==0)
                     printf("\n");
 
         }
         
         else {
-            printf("%d) %-21s ", i+1, monsterTypes[i]);
+            printf("%d) %-21s ", i+1, tipos_monstros[i]);
                 if((i+1)%2==0)
                     printf("\n");
         }
@@ -81,6 +97,7 @@ void Tipo_Monstro(Carta_Monstro *carta){
     
 
     int opcao;
+    printf("\n");
     scanf("%d", &opcao);
 
     switch (opcao) {
@@ -160,4 +177,21 @@ void Tipo_Monstro(Carta_Monstro *carta){
             printf("Tipo Inválido");
             break;
     }
+}
+
+void ATK_DEF(Carta_Monstro *carta){
+    printf("\nQual é a pontuação de ATK do Monstro:\n");
+    scanf("%d",&carta->ATK);
+    printf("\nQual é a pontuação de DEF do Monstro:\n");
+    scanf("%d",&carta->DEF);
+}
+
+void Texto(Carta_Monstro *carta){
+    printf("\nDigite o texto/efeito do monstro:\n");
+    fgets(carta->texto, sizeof(carta->texto), stdin);
+    size_t len = strlen(carta->texto);
+    if (carta->texto[len-1] == '\n') {
+        carta->texto[len-1] = '\0';
+    }
+    printf("\n");
 }

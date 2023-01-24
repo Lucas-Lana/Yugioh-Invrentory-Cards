@@ -2,8 +2,7 @@
 #include <string.h>
 #include <locale.h>
 
-typedef struct Carta_Monstro
-{   
+typedef struct Carta_Monstro {   
     char nome[64];
     int nivel;
     char atributo[7];
@@ -13,6 +12,7 @@ typedef struct Carta_Monstro
     char texto[480];
 }Carta_Monstro;
 
+void Imprime_Carta_Monstro(Carta_Monstro *carta);
 
 void Adiciona_Carta_Monstro(Carta_Monstro *carta);
 

@@ -6,4 +6,5 @@
 int main(){
     Carta_Monstro carta;
     Adiciona_Carta_Monstro(&carta);
+    Imprime_Carta_Monstro(&carta);
 }
