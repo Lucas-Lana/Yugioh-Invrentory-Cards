@@ -1,8 +1,19 @@
-executavel: main.o Inventario_de_cartas.o
-    gcc -o executavel main.o Inventario_de_cartas.o
+CC=gcc
+CFLAGS=-c -Wall
 
-main.o: main.c Inventario_de_cartas.h
-    gcc -c main.c
+all: main
 
-Inventario_de_cartas.o: Inventario_de_cartas.c Inventario_de_cartas.h
-    gcc -c Inventario_de_cartas.c
+main: Carta_Monstro.o Carta_Magica.o main.o
+    $(CC) Carta_Monstro.o Carta_Magica.o main.o -o main
+
+Carta_Monstro.o: Carta_Monstro.c Carta_Monstro.h
+    $(CC) $(CFLAGS) Carta_Monstro.c
+
+Carta_Magica.o: Carta_Magica.c Carta_Magica.h
+    $(CC) $(CFLAGS) Carta_Magica.c
+
+main.o: main.c
+    $(CC) $(CFLAGS) main.c
+
+clean:
+    rm -rf *o main

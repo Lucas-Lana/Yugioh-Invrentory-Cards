@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-#include "Inventario_de_cartas.h"
+#include "Carta_Monstro.h"
 
 void Imprime_Carta_Monstro(Carta_Monstro *carta) {
     printf("\n------------------------------------\n");
-    printf("Nome: %s\n", carta->nome);
+    printf("Nome do Monstro: %s\n", carta->nome);
     printf("Nivel: %d\n", carta->nivel);
     printf("Atributo: %s\n", carta->atributo);
     printf("Tipo: %s\n", carta->tipo);
@@ -21,7 +21,7 @@ void Adiciona_Carta_Monstro(Carta_Monstro *carta){
     Tipo_Monstro(carta);
     ATK_DEF(carta);
     fflush(stdin);
-    Texto(carta);
+    Texto_Monstro(carta);
 }
 
 void Nome_Monstro(Carta_Monstro *carta){
@@ -186,7 +186,7 @@ void ATK_DEF(Carta_Monstro *carta){
     scanf("%d",&carta->DEF);
 }
 
-void Texto(Carta_Monstro *carta){
+void Texto_Monstro(Carta_Monstro *carta){
     printf("\nDigite o texto/efeito do monstro:\n");
     fgets(carta->texto, sizeof(carta->texto), stdin);
     size_t len = strlen(carta->texto);

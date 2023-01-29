@@ -3,10 +3,10 @@
 #include <locale.h>
 
 typedef struct Carta_Monstro {   
-    char nome[64];
+    char nome[32];
     int nivel;
-    char atributo[7];
-    char tipo[82];
+    char atributo[8];
+    char tipo[32];
     int ATK;
     int DEF;
     char texto[480];
@@ -26,4 +26,4 @@ void Tipo_Monstro(Carta_Monstro *carta);
 
 void ATK_DEF(Carta_Monstro *carta);
 
-void Texto(Carta_Monstro *carta);
+void Texto_Monstro(Carta_Monstro *carta);
