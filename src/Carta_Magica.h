@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <locale.h>
+
 
 typedef struct Carta_Magica {
     char nome[32];
